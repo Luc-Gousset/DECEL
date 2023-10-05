@@ -1,0 +1,37 @@
+{
+  "name": "decel_back_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch src -e js,ts,json --exec \"ts-node src/index.ts\"",
+    "build": "tsup src/index.ts --format cjs --clean",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.3",
+    "@types/ws": "^8.5.6",
+    "@types/yargs": "^17.0.24",
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "protobufjs": "^7.2.2",
+    "protobufjs-cli": "^1.1.1",
+    "serialport": "^10.5.0",
+    "socket.io": "^4.6.1",
+    "sqlite3": "^5.1.6",
+    "ws": "^8.14.2",
+    "yargs": "^17.7.1"
+  }
+}

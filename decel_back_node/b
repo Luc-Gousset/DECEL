@@ -1,0 +1,27 @@
+parser.on('data', (stream) => {
+    const answ = DECEL.DECEL_ANSW.decode(stream, 20);
+
+    switch (answ.msg) {
+        case ("gpioAnsw"):
+            switch (answ.gpioAnsw?.typeMessage) {
+                case (DECEL.GPIO_MESSAGE_ANSW_TYPE.VALUE):
+                    //console.log(answ.gpioAnsw)
+
+                    if (answ.gpioAnsw.gpioId != undefined && answ.gpioAnsw.value != undefined) {
+                        GPIO.setGPIO_Value(answ.gpioAnsw.gpioId, answ.gpioAnsw.value)
+                        io.to("test").emit("Gpio", GPIO.getGPIO())
+                    }
+
+
+                    break;
+                case (DECEL.GPIO_MESSAGE_ANSW_TYPE.DIRECTION):
+                    break;
+            }
+            io.to("test").emit("Gpio", GPIO.getGPIO())
+
+            break;
+    }
+
+
+
+});
